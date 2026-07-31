@@ -256,7 +256,7 @@ void LegitimacyCheck() {
         }
     }
 
-    if (!steamappsFolderFound) {
+    /*if (!steamappsFolderFound) {
         error("Unsupported Steam installation.");
         return;
     }
@@ -272,7 +272,12 @@ void LegitimacyCheck() {
             GameDir = folderInfo.second->attribs["path"] + "/steamapps/common/BeamNG.drive/";
             break;
         }
-    }
+    }*/
+
+	std::string optDir = "/opt/beamng/";
+    if (std::filesystem::exists(optDir + "/integrity.json"))
+        GameDir = optDir;
+
     if (GameDir.empty()) {
         error("The game directory was not found.");
         return;

@@ -121,7 +121,7 @@ std::filesystem::path GetGamePath() {
     struct passwd* pw = getpwuid(getuid());
     std::string homeDir = pw->pw_dir;
 
-    std::string Path = homeDir + "/.local/share/BeamNG/BeamNG.drive/";
+    std::string Path = "/mnt/userdata/";
     std::string Ver = CheckVer(GetGameDir());
     Ver = Ver.substr(0, Ver.find('.', Ver.find('.') + 1));
     Path += "current/";
